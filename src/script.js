@@ -1,13 +1,14 @@
-const textbar=document.getElementById("search-bar");
+const textbar=document.getElementById("search-bar"); //search bar
 const button=document.getElementById("btn");
-const weathercardsdiv=document.querySelectorAll(".cards");
-const TodaysweatherDiv=document.querySelector(".todaysdata");
+const weathercardsdiv=document.querySelectorAll(".cards"); //weekly weather cards
+const TodaysweatherDiv=document.querySelector(".todaysdata"); //current weather
 const additionalDataDiv = document.querySelector(".additionaldata"); // Select additional data section
 const cityDropdown = document.getElementById("city-dropdown"); // Dropdown menu
 
 
 
 const API_key="dbccdcffaed1df5a26592501ad63baf8";
+
 const updateWeatherCard=(weatheritem)=>{
     return `<div class="bg-cyan-200 p-5 rounded-lg text-center">
             <img class="mx-auto mb-2 w-14" src=https://openweathermap.org/img/wn/${weatheritem.weather[0].icon}@2x.png alt="Weather icon">
@@ -39,6 +40,20 @@ const updateAdditionalData = (weatheritem) => {
         <div class="bg-cyan-200 p-5 text-center rounded-lg w-1/3 text-xl">Pressure: ${weatheritem.main.pressure} hPa</div>
         <div class="bg-cyan-200 p-5 text-center rounded-lg w-1/3 text-xl">Humidity: ${weatheritem.main.humidity}%</div>`;
 };
+const getcity=()=>{
+    const cityname=textbar.value.trim();
+    if(!cityname) return;
+    const GEOCODING_API=`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${API_key}`;
+    fetch(GEOCODING_API).then(response=>response.json()).then(data=>{
+        if(!data.length)return alert(`No coordinates found for ${cityname}`);
+        const {name,lat,lon}=data[0];
+        weatherdata(name,lat,lon);
+       
+    }).catch(()=>{
+        alert("An error occured")
+    });
+
+}
 // Function to get city name from latitude and longitude
 const getCityNameFromCoords = (lat, lon) => {
     const GEOCODING_API = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_key}`;
@@ -104,15 +119,10 @@ const weatherdata = (cityname,lat,lon)=>{
         // Clear previous content in the cards
         weathercardsdiv.forEach(card => card.innerHTML = "");
 
-
-
         fivedaysForecast.forEach((weatheritem, index)=> {
             if (weathercardsdiv[index]) { // Check if the index exists in the card list
                 weathercardsdiv[index].innerHTML = updateWeatherCard(weatheritem); // Update the card content
             }
-              //weathercardsdiv.insertAdjacentHTML("beforeend",updateWeatherCard(weatheritem)); // Update the card content
-            
-
         });
 
     }).catch(()=>{
@@ -160,21 +170,6 @@ cityDropdown.addEventListener("change", () => {
 // Initialize by populating dropdown
 populateDropdown();
 
-
-const getcity=()=>{
-    const cityname=textbar.value.trim();
-    if(!cityname) return;
-    const GEOCODING_API=`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${API_key}`;
-    fetch(GEOCODING_API).then(response=>response.json()).then(data=>{
-        if(!data.length)return alert(`No coordinates found for ${cityname}`);
-        const {name,lat,lon}=data[0];
-        weatherdata(name,lat,lon);
-       
-    }).catch(()=>{
-        alert("An error occured")
-    });
-
-}
 // Add event listener for search button
 button.addEventListener("click", getcity);
-document.getElementById('location').addEventListener('click', getCurrentLocationWeather);
+document.getElementById('location').addEventListener('click', getCurrentLocationWeather); //for Current location
