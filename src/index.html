@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast Application Development</title>
+    <link rel="stylesheet" href="output.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="traditional.css">
+</head>
+<body class="bg-cyan-100 p-5">
+  <div class="mx-auto w-[600px]">
+    <h1 class="bg-gray-950 text-4xl p-2 mx-auto text-center text-blue-500">Weather Dashboard</h1>
+     <div class="h-1 mx-auto bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500"></div>
+  </div>
+    <div class="container mx-auto max-w-6xl">
+      
+      <!-- Search Bar -->
+      <div class="flex justify-center mt-5 mb-5"> 
+        <input id="search-bar" class="p-2.5 w-64 border border-gray-300 rounded-md" type="text" placeholder="Enter city name" required>
+        <button id="btn" class="p-2.5 ml-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">Search</button>
+        <button id="location"  class="p-1.5 ml-3 text-1xl bg-gray-600 text-white rounded-md hover:bg-gray-800"><i class='bx bx-current-location'></i></button>
+        <!-- Dropdown for previously searched cities -->
+        <select id="city-dropdown" class="ml-3 p-2 bg-white border border-gray-300 rounded-md">
+          <option value="" selected>Select Previous City</option>
+        </select>
+      </div>
+      
+  
+      <!-- Main Weather Section -->
+      <div class="todaysdata bg-blue-600 text-white p-5 rounded-lg flex justify-between items-center">
+        <div class="displayDegree text-4xl">34°C</div>
+        <img class="mx-auto mb-2 w-20" src="" alt="Weather icon">
+        <div class="text-right">
+          <p class="text-xl">(city),</p>
+          <p class="text-lg">Feels like __°C</p>
+          <p class="text-sm">(Description)</p>
+        </div>
+      </div>
+  
+      <!-- Additional Info Section -->
+      <div class=" additionaldata flex justify-between mt-5 gap-2">
+        <div class="add bg-cyan-200 p-5 text-center rounded-lg w-1/3 text-xl">wind:_m/s</div>
+        <div class="add bg-cyan-200 p-5 text-center rounded-lg w-1/3 text-xl">Pressure:__hPa</div>
+        <div class="add bg-cyan-200 p-5 text-center rounded-lg w-1/3 text-xl">Humidity:__%</div>
+      </div>
+  
+      <!-- Weekly Forecast Section -->
+      <div class="mt-10">
+        <h2 class="text-2xl mb-5">This Week</h2>
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-5 ">
+          
+          <!-- Forecast Card Example -->
+          <div class="cards bg-cyan-200 p-5 rounded-lg text-center">
+            <img class="mx-auto mb-2 w-14" src="" alt="Weather icon">
+            <p class="text-lg"> ( _____ )</p>
+            <h4>Temp:__°C</h4>
+            <h4>Wind:__°C</h4>
+            <p>Humidity:__%</p>
+          </div>
+          <div class="cards bg-cyan-200 p-5 rounded-lg text-center">
+            <img class="mx-auto mb-2 w-14" src="" alt="Weather icon">
+            <p class="text-lg">( _____ )</p>
+            <h4>Temp:__°C</h4>
+            <h4>Wind:__°C</h4>
+            <p>Humidity:__%</p>
+          </div>
+          <div class="cards bg-cyan-200 p-5 rounded-lg text-center">
+            <img class="mx-auto mb-2 w-14" src="" alt="Weather icon">
+            <p class="text-lg">( _____ )</p>
+            <h4>Temp:__°C</h4>
+            <h4>Wind:__°C</h4>
+            <p>Humidity:__%</p>
+          </div>
+          <div class="cards bg-cyan-200 p-5 rounded-lg text-center">
+            <img class="mx-auto mb-2 w-14" src="" alt="Weather icon">
+            <p class="text-lg">( _____ )</p>
+            <h4>Temp:__°C</h4>
+            <h4>Wind:__°C</h4>
+            <p>Humidity:__%</p>
+          </div>
+          <div class="cards bg-cyan-200 p-5 rounded-lg text-center">
+            <img class="mx-auto mb-2 w-14" src="" alt="Weather icon">
+            <p class="text-lg">( _____ )</p>
+            <h4>Temp:__°C</h4>
+            <h4>Wind:__°C</h4>
+            <p>Humidity:__%</p>
+          </div>
+         
+        </div>
+      </div>
+  
+    </div>
+    <script src="script.js"></script>
+</body>
+  
+</html>
