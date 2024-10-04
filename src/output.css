@@ -625,6 +625,18 @@ video {
   margin-left: auto;
 }
 
+.ml-36 {
+  margin-left: 9rem;
+}
+
+.ml-40 {
+  margin-left: 10rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -728,6 +740,11 @@ video {
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+
+.bg-gray-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 7 18 / var(--tw-bg-opacity));
 }
 
 .bg-white {
