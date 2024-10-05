@@ -1,10 +1,13 @@
 Weather Forecast Application
+
 This project is a weather forecast application that provides weather data for any searched city. It fetches weather details using the OpenWeatherMap API, displays the weather for today and the next 5 days, and stores previous searches in a dropdown for quick access. The app also has a "Use Current Location" button to fetch the user's current weather data.
 
 Features:
 
-Search Weather by City: Users can search for the weather in any city using the search bar.
-5-Day Forecast: The app displays the current weather as well as the forecast for the next 5 days.
+Search Weather by City:
+Users can search for the weather in any city using the search bar.
+5-Day Forecast: 
+The app displays the current weather as well as the forecast for the next 5 days.
 Current Location Weather: A button allows users to fetch the weather based on their current location.
 Persistent Search History: The app saves previously searched cities and allows users to quickly select them from a dropdown menu.
 Responsive Design: The layout is responsive and adapts to different screen sizes using TailwindCSS.
@@ -80,7 +83,7 @@ API Reference
 OpenWeatherMap API
 This project uses the OpenWeatherMap API to retrieve weather information. Below are the key endpoints:
 
-Geocoding API: Converts city names into geographic coordinates (latitude and longitude).
+Geocoding API:Converts city names into geographic coordinates (latitude and longitude).
 
 Example:
 
